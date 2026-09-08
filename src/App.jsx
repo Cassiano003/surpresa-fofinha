@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useState, useRef } from 'react';
 import './App.css';
+import './index.css';
 import Surpresa from './Surpresa'; 
 
 function Home() {
@@ -8,7 +9,7 @@ function Home() {
     <div className="container">
       <h1>Feliz <b>3 Meses</b> de Namoro! 💞</h1>
       <div className="decoracao">
-        <img src="/decoracoes/snoopy_kitty.png" alt="Foto 1" />
+        <img src="/decoracoes/snoopy_kitty.png" alt="Foto Legal" />
       </div>
       
       <p>Num dia tão especial, por que não uma surpresa tão especial quanto esta data, não é?</p>

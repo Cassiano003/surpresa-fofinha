@@ -8,7 +8,7 @@ function Surpresa() {
       <div className="galeria">
         <img src="/fotos/foto5.jpg" alt="Foto 5" />
       </div>
-      <LoveTimer /> 
+      <LoveTimer />
       <p>
         Aqui vai alguns momentos nossos
       </p>
