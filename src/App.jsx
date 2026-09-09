@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter, Routes, Route, Link } from 'react-router-dom';
 import { useState, useRef } from 'react';
 import './App.css';
 import Surpresa from './Surpresa'; 
@@ -36,7 +36,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <HashRouter>
      <div className="floating-hearts">
         <span className="heart">❤️</span>
         <span className="heart">💖</span>
@@ -57,7 +57,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/surpresa" element={<Surpresa />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
