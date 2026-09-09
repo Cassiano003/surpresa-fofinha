@@ -9,12 +9,12 @@ function Home() {
     <div className="container">
       <h1>Feliz <b>3 Meses</b> de Namoro! 💞</h1>
       <div className="decoracao">
-        <img src="/decoracoes/snoopy_kitty.png" alt="Foto Legal" />
+        <img src="./decoracoes/snoopy_kitty.png" alt="Foto Legal" />
       </div>
       
       <p>Num dia tão especial, por que não uma surpresa tão especial quanto esta data, não é?</p>
 
-      <Link to="/surpresa">
+      <Link to="./surpresa">
         <button className="botao-carinhoso">
           Aproveite a surpresa
         </button>
@@ -50,13 +50,13 @@ function App() {
         <span className="heart">💞</span>
         <span className="heart">💓</span>
       </div>
-    <audio ref={audioRef} src="/musicas/fundinhoMusical.mp3" loop />
+    <audio ref={audioRef} src="./musicas/fundinhoMusical.mp3" loop />
       <button className="botao-musica" onClick={togglePlay}>
         {isPlaying ? 'Pausar Música' : 'Solta o som, Djavan'}
       </button>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/surpresa" element={<Surpresa />} />
+        <Route path="./" element={<Home />} />
+        <Route path="./surpresa" element={<Surpresa />} />
       </Routes>
     </HashRouter>
   );
