@@ -6,7 +6,7 @@ function Surpresa() {
     <div className="container">
       <h1 className="surpresaTitulo">Obrigado por me amar, <b>MEU</b> amor.</h1>
       <div className="galeria">
-        <img src="./fotos/foto5.jpg" alt="Foto 5" />
+        <img loading="lazy" src="./fotos/foto5.jpg" alt="Foto 5" />
       </div>
       <LoveTimer /> 
       <p>
@@ -14,10 +14,10 @@ function Surpresa() {
       </p>
 
       <div className="galeria">
-        <img className="nossasFotos" src="./fotos/foto1.jpg" alt="Foto 1" />
-        <img className="nossasFotos" src="./fotos/foto2.jpg" alt="Foto 2" />
-        <img className="nossasFotos" src="./fotos/foto3.jpg" alt="Foto 3" />
-        <img className="nossasFotos" src="./fotos/foto4.jpg" alt="Foto 4" />
+        <img loading="lazy" className="nossasFotos" src="./fotos/foto1.jpg" alt="Foto 1" />
+        <img loading="lazy" className="nossasFotos" src="./fotos/foto2.jpg" alt="Foto 2" />
+        <img loading="lazy" className="nossasFotos" src="./fotos/foto3.jpg" alt="Foto 3" />
+        <img loading="lazy" className="nossasFotos" src="./fotos/foto4.jpg" alt="Foto 4" />
       </div>
 
       <Link to="/">

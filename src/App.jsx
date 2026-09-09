@@ -8,7 +8,7 @@ function Home() {
     <div className="container">
       <h1>Feliz <b>3 Meses</b> de Namoro! 💞</h1>
       <div className="decoracao">
-        <img src="./decoracoes/snoopy_kitty.png" alt="Foto Legal" />
+        <img loading="lazy" src="./decoracoes/snoopy_kitty.png" alt="Foto Legal" />
       </div>
       
       <p>Num dia tão especial, por que não uma surpresa tão especial quanto esta data, não é?</p>

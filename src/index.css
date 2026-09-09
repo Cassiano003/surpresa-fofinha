@@ -228,3 +228,94 @@ p {
 .timer-box:nth-child(5) span {
   animation: pulse 1s infinite;
 }
+
+/* ===== RESPONSIVIDADE PARA TABLET E CELULAR ===== */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 20px;
+    margin: 20px;
+    max-width: 95%;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 20px 0 15px 0;
+  }
+
+  .decoracao img {
+    width: 100%;
+    max-width: 320px;
+    height: 200px;
+  }
+
+  .galeria img {
+    width: 100% !important;
+    max-width: 350px !important;
+    height: 280px !important;
+  }
+
+  .botao-carinhoso {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  .botao-musica {
+    top: 10px;
+    right: 10px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .timer-container h2 {
+    font-size: 2rem;
+    margin: 80px 0 20px 0;
+  }
+
+  .timer-grid {
+    gap: 8px;
+  }
+
+  .timer-box {
+    min-width: 90px;
+    padding: 10px;
+    margin-bottom: 60px;
+  }
+
+  .timer-box span {
+    font-size: 2rem;
+  }
+
+  .timer-box small {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 15px;
+    border-radius: 14px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .decoracao img,
+  .galeria img {
+    height: 220px;
+  }
+
+  .timer-box {
+    min-width: 75px;
+  }
+
+  .timer-box span {
+    font-size: 1.6rem;
+  }
+}
