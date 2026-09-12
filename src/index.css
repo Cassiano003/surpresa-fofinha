@@ -86,7 +86,7 @@ p {
 
 .decoracao img {
   width: 320px;
-  height: 240px;
+  height: auto;
   object-fit: cover;
   transition: transform 0.3s;
 }
@@ -370,6 +370,38 @@ p {
   .timer-box small {
     font-size: 0.8rem;
   }
+
+  .textoFofinho {
+    max-width: 92%;
+    padding: 0 20px;
+  }
+
+  .textoFofinho.aberta {
+    padding: 30px 20px 25px 20px;
+    max-height: 1300px;
+  }
+
+  .textoFofinho p {
+    font-size: 1.4rem;
+  }
+
+  .botao-musica {
+    top: 20px;
+    right: 10px;
+  }
+
+  .botao-playlist {
+    top: 55px;
+    right: 10px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .assinatura {
+    font-size: 1rem;
+    padding: 3%;
+    margin-top: 5%;
+  }
 }
 
 .carta-wrapper {
@@ -491,16 +523,19 @@ p {
 
 .textoFofinho p {
   font-family: 'Caveat', cursive;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   line-height: 1.6;
   color: #4a3b2c;
   text-align: left;
   margin: 0 !important;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 20px 15px;
+    padding: 20px 10px;
+    margin: 10px;
     border-radius: 14px;
   }
 
@@ -512,12 +547,60 @@ p {
     height: 220px;
   }
 
+  .timer-grid {
+    gap: 5px;
+  }
+
   .timer-box {
-    min-width: 65px;
+    min-width: 46px;
+    padding: 6px 3px;
   }
 
   .timer-box span {
-    font-size: 1.6rem;
+    font-size: 1.25rem;
+  }
+
+  .timer-box small {
+    font-size: 0.6rem;
+    letter-spacing: 0;
+  }
+
+  .textoFofinho {
+    max-width: 100%;
+    padding: 0 12px;
+  }
+
+  .textoFofinho.aberta {
+    padding: 25px 15px 20px 15px;
+  }
+
+  .textoFofinho p {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .botao-musica {
+    top: 22px;
+    right: 10px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .botao-playlist {
+    top: 48px;
+    right: 10px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .ass {
+    justify-content: center;
+  }
+
+  .assinatura {
+    font-size: 0.9rem;
+    padding: 4%;
+    margin-top: 6%;
   }
 }
 /* ===== PLAYLIST LATERAL ===== */
@@ -621,13 +704,6 @@ p {
 }
 
 @media (max-width: 480px) {
-  .botao-playlist {
-    top: 10px;
-    right: 130px;
-    padding: 8px 14px;
-    font-size: 0.85rem;
-  }
-
   .playlist-sidebar {
     width: 80vw;
     right: -80vw;
