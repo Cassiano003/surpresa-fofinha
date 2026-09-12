@@ -49,6 +49,22 @@ h1 {
   font-weight: 400; 
 }
 
+.ass {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.assinatura {
+  margin-top: 8%;
+  padding: 2%;
+  font-size: 1.1rem; 
+  color: #ffffff;
+  font-weight: 400; 
+  background-color: rgba(255, 28, 179, 0.486);
+  backdrop-filter: blur(1px); 
+  border-radius: 20px;
+}
+
 .surpresaTitulo {
   margin-top: 20px;
   margin-bottom: 80px;
@@ -94,41 +110,51 @@ p {
 
 .galeria {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 15px;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .aqui {
   color: #f1f1f1;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px !important;
 }
 
 #polaroid {
   padding: 0.5% 2.5%;
-  background-color: rgba(43, 43, 43, 0.438);
-  backdrop-filter: blur(7px); 
+  background-color: rgba(197, 27, 126, 0.438);
+  backdrop-filter: blur(5px); 
   border-radius: 20px;
-  box-shadow: 0 13px 28px rgba(0,0,0,0.1);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+  overflow: visible;
 }
 
 .galeria img {
-  width: 700px !important;
-  height: 550px !important;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  max-height: 1000px;
+  display: block;
   object-fit: cover;
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s, box-shadow 0.3s;
   border: 3px solid white;
 }
 
 .galeria img:hover {
-  transform: scale(1.1);
+  transform: scale(1.03);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
 }
 
 .nossasFotos {
-  margin: 30px;
+  margin-bottom: 15px;
+}
+
+#fotoCinco {
+  margin-bottom: 50px;
 }
 
 .botao-musica {
@@ -136,7 +162,6 @@ p {
   top: 20px;
   right: 20px;
   z-index: 1000;
-
   background-color: rgba(255, 255, 255, 0.9);
   color: #d6336c;
   border: 2px solid #d6336c;
@@ -239,12 +264,28 @@ p {
 }
 
 .textoFofinho {
-  padding: 0.5% 2.5%;
-  background-color: rgba(255, 156, 197, 0.438);
-  backdrop-filter: blur(7px); 
-  border-radius: 20px;
-  box-shadow: 0 13px 28px rgba(0,0,0,0.1);
-  max-width: 96%;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  max-height: 0;
+  padding: 0 40px;
+  overflow: hidden;
+  opacity: 0;
+  transform: rotate(-1.2deg) translateY(-30px) scale(0.95);
+  background: repeating-linear-gradient(
+    to bottom,
+    #fffaf3,
+    #fffaf3 34px,
+    #f6e9d8 35px
+  );
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  transition:
+    max-height 0.7s ease 0.5s,
+    padding 0.7s ease 0.5s,
+    opacity 0.6s ease 0.55s,
+    transform 0.6s ease 0.55s;
+  pointer-events: none;
 }
 
 @keyframes pulse {
@@ -283,9 +324,16 @@ p {
   }
 
   .galeria img {
-    width: 100% !important;
-    max-width: 350px !important;
-    height: 280px !important;
+    max-width: 90%;
+  }
+
+  .galeria img:hover {
+    transform: scale(0.95);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+  }
+
+  #fotoCinco {
+    margin-bottom: 15px;
   }
 
   .botao-carinhoso {
@@ -324,6 +372,132 @@ p {
   }
 }
 
+.carta-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0 40px 0;
+}
+
+.dica-clique {
+  color: #a61e4d;
+  font-style: italic;
+  font-size: 1rem !important;
+  margin: 0 0 10px 0 !important;
+  animation: pulse 1.5s infinite;
+}
+
+.envelope {
+  position: relative;
+  width: 260px;
+  height: 170px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  perspective: 600px;
+  transition: opacity 0.5s ease 0.55s, transform 0.5s ease 0.55s;
+}
+
+.envelope-corpo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ffc2d9, #ff9dc1);
+  border-radius: 6px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  border: 2px solid #fff;
+  z-index: 1;
+}
+
+.envelope-corpo::before,
+.envelope-corpo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.envelope-corpo::before {
+  left: 0;
+  border-width: 0 0 85px 130px;
+  border-color: transparent transparent rgba(255, 255, 255, 0.28) transparent;
+}
+
+.envelope-corpo::after {
+  right: 0;
+  border-width: 0 130px 85px 0;
+  border-color: transparent transparent rgba(255, 255, 255, 0.28) transparent;
+}
+
+.envelope-aba {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 85px 130px 0 130px;
+  border-color: #ff8db0 transparent transparent transparent;
+  transform-origin: top center;
+  transition: transform 0.6s ease;
+  z-index: 3;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.envelope.aberto .envelope-aba {
+  transform: rotateX(180deg);
+}
+
+.selo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.2rem;
+  z-index: 4;
+  transition: opacity 0.3s ease;
+}
+
+.envelope.aberto .selo {
+  opacity: 0;
+}
+
+.envelope.aberto {
+  opacity: 0;
+  transform: scale(0.85) translateY(15px);
+  pointer-events: none;
+}
+
+.textoFofinho.aberta {
+  max-height: 900px;
+  padding: 45px 40px 35px 40px;
+  opacity: 1;
+  transform: rotate(-1.2deg) translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.textoFofinho::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 30px 30px 0;
+  border-color: transparent #f0d9b5 transparent transparent;
+  filter: drop-shadow(-1px 1px 1px rgba(0, 0, 0, 0.2));
+}
+
+.textoFofinho p {
+  font-family: 'Caveat', cursive;
+  font-size: 1.7rem;
+  line-height: 1.6;
+  color: #4a3b2c;
+  text-align: left;
+  margin: 0 !important;
+}
+
 @media (max-width: 480px) {
   .container {
     padding: 20px 15px;
@@ -334,8 +508,7 @@ p {
     font-size: 1.5rem;
   }
 
-  .decoracao img,
-  .galeria img {
+  .decoracao img {
     height: 220px;
   }
 
@@ -345,5 +518,118 @@ p {
 
   .timer-box span {
     font-size: 1.6rem;
+  }
+}
+/* ===== PLAYLIST LATERAL ===== */
+
+.botao-playlist {
+  position: fixed;
+  top: 20px;
+  right: 190px;
+  z-index: 1000;
+
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #d6336c;
+  border: 2px solid #d6336c;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.botao-playlist:hover {
+  background-color: #d6336c;
+  color: white;
+  transform: scale(1.05);
+}
+
+.playlist-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1998;
+}
+
+.playlist-sidebar {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100vh;
+  background-color: #fff5f8;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.25);
+  z-index: 1999;
+  padding: 20px;
+  transition: right 0.35s ease;
+  overflow-y: auto;
+}
+
+.playlist-sidebar.aberta {
+  right: 0;
+}
+
+.playlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ffd1e1;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.playlist-header h3 {
+  color: #d6336c;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+}
+
+.fechar-playlist {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #d6336c;
+  cursor: pointer;
+}
+
+.playlist-sidebar ul {
+  list-style: none;
+}
+
+.playlist-sidebar li {
+  padding: 12px 15px;
+  border-radius: 10px;
+  color: #5f5f5f;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: 0.2s;
+}
+
+.playlist-sidebar li:hover {
+  background-color: #ffe3ec;
+}
+
+.playlist-sidebar li.musica-ativa {
+  background-color: #d6336c;
+  color: white;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .botao-playlist {
+    top: 10px;
+    right: 130px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .playlist-sidebar {
+    width: 80vw;
+    right: -80vw;
   }
 }
