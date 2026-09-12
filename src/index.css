@@ -298,112 +298,6 @@ p {
   animation: pulse 1s infinite;
 }
 
-/* ===== RESPONSIVIDADE PARA TABLET E CELULAR ===== */
-
-@media (max-width: 768px) {
-  .container {
-    padding: 30px 20px;
-    margin: 20px;
-    max-width: 95%;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-    margin-bottom: 25px;
-  }
-
-  p {
-    font-size: 1rem;
-    margin: 20px 0 15px 0;
-  }
-
-  .decoracao img {
-    width: 100%;
-    max-width: 320px;
-    height: 200px;
-  }
-
-  .galeria img {
-    max-width: 90%;
-  }
-
-  .galeria img:hover {
-    transform: scale(0.95);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
-  }
-
-  #fotoCinco {
-    margin-bottom: 15px;
-  }
-
-  .botao-carinhoso {
-    padding: 12px 24px;
-    font-size: 1rem;
-  }
-
-  .botao-musica {
-    top: 10px;
-    right: 10px;
-    padding: 8px 14px;
-    font-size: 0.85rem;
-  }
-
-  .timer-container h2 {
-    font-size: 2rem;
-    margin: 20px 0 20px 0;
-  }
-
-  .timer-grid {
-    gap: 8px;
-  }
-
-  .timer-box {
-    min-width: 80px;
-    padding: 10px;
-    margin-bottom: 60px;
-  }
-
-  .timer-box span {
-    font-size: 2rem;
-  }
-
-  .timer-box small {
-    font-size: 0.8rem;
-  }
-
-  .textoFofinho {
-    max-width: 92%;
-    padding: 0 20px;
-  }
-
-  .textoFofinho.aberta {
-    padding: 30px 20px 25px 20px;
-    max-height: 1300px;
-  }
-
-  .textoFofinho p {
-    font-size: 1.4rem;
-  }
-
-  .botao-musica {
-    top: 20px;
-    right: 10px;
-  }
-
-  .botao-playlist {
-    top: 55px;
-    right: 10px;
-    padding: 8px 14px;
-    font-size: 0.85rem;
-  }
-
-  .assinatura {
-    font-size: 1rem;
-    padding: 3%;
-    margin-top: 5%;
-  }
-}
-
 .carta-wrapper {
   display: flex;
   flex-direction: column;
@@ -532,77 +426,6 @@ p {
   word-break: break-word;
 }
 
-@media (max-width: 480px) {
-  .container {
-    padding: 20px 10px;
-    margin: 10px;
-    border-radius: 14px;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .decoracao img {
-    height: 220px;
-  }
-
-  .timer-grid {
-    gap: 5px;
-  }
-
-  .timer-box {
-    min-width: 46px;
-    padding: 6px 3px;
-  }
-
-  .timer-box span {
-    font-size: 1.25rem;
-  }
-
-  .timer-box small {
-    font-size: 0.6rem;
-    letter-spacing: 0;
-  }
-
-  .textoFofinho {
-    max-width: 100%;
-    padding: 0 12px;
-  }
-
-  .textoFofinho.aberta {
-    padding: 25px 15px 20px 15px;
-  }
-
-  .textoFofinho p {
-    font-size: 1.25rem;
-    line-height: 1.2;
-  }
-
-  .botao-musica {
-    top: 22px;
-    right: 10px;
-    padding: 6px 12px;
-    font-size: 0.8rem;
-  }
-
-  .botao-playlist {
-    top: 48px;
-    right: 10px;
-    padding: 6px 12px;
-    font-size: 0.8rem;
-  }
-
-  .ass {
-    justify-content: center;
-  }
-
-  .assinatura {
-    font-size: 0.9rem;
-    padding: 4%;
-    margin-top: 6%;
-  }
-}
 /* ===== PLAYLIST LATERAL ===== */
 
 .botao-playlist {
@@ -701,6 +524,183 @@ p {
   background-color: #d6336c;
   color: white;
   font-weight: bold;
+}
+
+/* ===== RESPONSIVIDADE PARA TABLET E CELULAR ===== */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 20px;
+    margin: 20px;
+    max-width: 95%;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 20px 0 15px 0;
+  }
+
+  .decoracao img {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .galeria img {
+    max-width: 90%;
+  }
+
+  .galeria img:hover {
+    transform: scale(0.95);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+  }
+
+  #fotoCinco {
+    margin-bottom: 15px;
+  }
+
+  .botao-carinhoso {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  .botao-musica {
+    top: 10px;
+    right: 10px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .timer-container h2 {
+    font-size: 2rem;
+    margin: 20px 0 20px 0;
+  }
+
+  .timer-grid {
+    gap: 5px;
+  }
+
+  .timer-box {
+    min-width: 80px;
+    padding: 10px;
+    margin-bottom: 60px;
+  }
+
+  .timer-box span {
+    font-size: 2rem;
+  }
+
+  .timer-box small {
+    font-size: 0.8rem;
+  }
+
+  .textoFofinho {
+    max-width: 92%;
+    padding: 0 20px;
+  }
+
+  .textoFofinho.aberta {
+    padding: 30px 20px 25px 20px;
+    max-height: 1300px;
+  }
+
+  .textoFofinho p {
+    font-size: 1.3rem;
+  }
+
+  .botao-musica {
+    top: 20px;
+    right: 10px;
+  }
+
+  .botao-playlist {
+    top: 64px;
+    right: 10px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .assinatura {
+    font-size: 1rem;
+    padding: 3%;
+    margin-top: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 10px;
+    margin: 50px 18px 50px 18px;
+    border-radius: 14px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .decoracao img {
+    height: 220px;
+  }
+
+  .timer-grid {
+    gap: 5px;
+  }
+
+  .timer-box {
+    min-width: 46px;
+    padding: 6px 3px;
+  }
+
+  .timer-box span {
+    font-size: 1.25rem;
+  }
+
+  .timer-box small {
+    font-size: 0.6rem;
+    letter-spacing: 0;
+  }
+
+  .textoFofinho {
+    max-width: 100%;
+    padding: 0 12px;
+  }
+
+  .textoFofinho.aberta {
+    padding: 25px 15px 20px 15px;
+  }
+
+  .textoFofinho p {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .botao-musica {
+    top: 18px;
+    right: 10px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .botao-playlist {
+    top: 55px;
+    right: 10px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .ass {
+    justify-content: center;
+  }
+
+  .assinatura {
+    font-size: 0.9rem;
+    padding: 4%;
+    margin-top: 6%;
+  }
 }
 
 @media (max-width: 480px) {
