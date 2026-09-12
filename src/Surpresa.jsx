@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import LoveTimer from './LoveTimer';
+
+const fotos = [
+  { src: './fotos/foto1.jpg', legenda: 'Um dia qualquer, do nosso jeito', rotacao: -6 },
+  { src: './fotos/foto2.jpg', legenda: 'Aquele sorriso que eu amo', rotacao: 4 },
+  { src: './fotos/foto3.jpg', legenda: 'Sempre juntinhos', rotacao: -3 },
+  { src: './fotos/foto4.jpg', legenda: 'Um momento pra guardar', rotacao: 5 },
+  { src: './fotos/foto5.jpg', legenda: '3 meses e contando 💕', rotacao: -5 },
+];
 
 function Surpresa() {
   const [cartaAberta, setCartaAberta] = useState(false);
   const [envelopeVisivel, setEnvelopeVisivel] = useState(true);
+  const [fotoAberta, setFotoAberta] = useState(null);
 
   const abrirCarta = () => {
     setCartaAberta(true);
@@ -12,6 +21,33 @@ function Surpresa() {
   const handleEnvelopeTransitionEnd = () => {
     if (cartaAberta) setEnvelopeVisivel(false);
   };
+
+  useEffect(() => {
+    const elementos = document.querySelectorAll('.foto-polaroid');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visivel');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    elementos.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') setFotoAberta(null);
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, []);
 
   return (
     <div className="container">
@@ -41,16 +77,46 @@ function Surpresa() {
       </div>
       <LoveTimer />
       
-      <div className="galeria" id='polaroid'>
+      <div id='polaroid'>
         <p className='aqui'>
           Aqui vão alguns momentos nossos
         </p>
-        <img loading="lazy" className="nossasFotos" src="./fotos/foto1.jpg" alt="Foto 1" />
-        <img loading="lazy" className="nossasFotos" src="./fotos/foto2.jpg" alt="Foto 2" />
-        <img loading="lazy" className="nossasFotos" src="./fotos/foto3.jpg" alt="Foto 3" />
-        <img loading="lazy" className="nossasFotos" src="./fotos/foto4.jpg" alt="Foto 4" />
-        <img loading="lazy" className="nossasFotos" id="fotoCinco" src="./fotos/foto5.jpg" alt="Foto 5" />
+
+        <div className="polaroid-grid">
+          {fotos.map((foto, index) => (
+            <div
+              key={index}
+              className="foto-polaroid"
+              style={{ '--rot': `${foto.rotacao}deg`, transitionDelay: `${index * 0.12}s` }}
+              onClick={() => setFotoAberta(foto)}
+            >
+              <img loading="lazy" src={foto.src} alt={foto.legenda} />
+              <p className="legenda-polaroid">{foto.legenda}</p>
+            </div>
+          ))}
+        </div>
       </div>
+
+      {fotoAberta && (
+        <div className="lightbox-overlay" onClick={() => setFotoAberta(null)}>
+          <button
+            className="lightbox-fechar"
+            onClick={(e) => {
+              e.stopPropagation();
+              setFotoAberta(null);
+            }}
+          >
+            ✕
+          </button>
+          <img
+            src={fotoAberta.src}
+            alt={fotoAberta.legenda}
+            className="lightbox-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <p className="lightbox-legenda">{fotoAberta.legenda}</p>
+        </div>
+      )}
 
       <div className='ass'>
         <h2 className="assinatura">

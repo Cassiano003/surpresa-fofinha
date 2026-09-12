@@ -108,13 +108,6 @@ p {
   transform: scale(1.05);
 }
 
-.galeria {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
 .aqui {
   color: #f1f1f1;
   width: 100%;
@@ -123,38 +116,123 @@ p {
 }
 
 #polaroid {
-  padding: 0.5% 2.5%;
+  padding: 20px 2.5% 40px 2.5%;
   background-color: rgba(197, 27, 126, 0.438);
-  backdrop-filter: blur(5px); 
+  backdrop-filter: blur(5px);
   border-radius: 20px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
   overflow: visible;
 }
 
-.galeria img {
+/* ===== GALERIA ESTILO POLAROID ===== */
+
+.polaroid-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px 25px;
+  padding: 10px;
+}
+
+.foto-polaroid {
+  background-color: #fdfdfd;
+  padding: 14px 14px 20px 14px;
+  border-radius: 4px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.45);
+  width: 230px;
+  cursor: pointer;
+
+  /* estado inicial: escondida, pronta pro efeito de scroll reveal */
+  opacity: 0;
+  transform: translateY(50px) rotate(var(--rot, 0deg)) scale(0.9);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.foto-polaroid.visivel {
+  opacity: 1;
+  transform: translateY(0) rotate(var(--rot, 0deg)) scale(1);
+}
+
+.foto-polaroid:hover {
+  transform: translateY(-6px) rotate(0deg) scale(1.05);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.55);
+  z-index: 5;
+}
+
+.foto-polaroid img {
   width: 100%;
-  max-width: 700px;
-  height: auto;
-  max-height: 1000px;
-  display: block;
+  height: 240px;
   object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 3px solid white;
+  display: block;
 }
 
-.galeria img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+.legenda-polaroid {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem !important;
+  color: #4a3b2c !important;
+  text-align: center;
+  margin: 12px 0 0 0 !important;
 }
 
-.nossasFotos {
-  margin-bottom: 15px;
+/* ===== LIGHTBOX (ZOOM EM TELA CHEIA) ===== */
+
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  cursor: zoom-out;
+  animation: fadeInLightbox 0.25s ease;
 }
 
-#fotoCinco {
-  margin-bottom: 50px;
+@keyframes fadeInLightbox {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 6px solid #fff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  cursor: default;
+}
+
+.lightbox-legenda {
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem !important;
+  color: #fff !important;
+  margin-top: 18px !important;
+  text-align: center;
+}
+
+.lightbox-fechar {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid #fff;
+  color: #fff;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.lightbox-fechar:hover {
+  background: #d6336c;
+  border-color: #d6336c;
+  transform: scale(1.1);
 }
 
 .botao-musica {
@@ -308,7 +386,7 @@ p {
 .dica-clique {
   color: #a61e4d;
   font-style: italic;
-  font-size: 1rem !important;
+  font-size: 0.9rem !important;
   margin: 0 0 10px 0 !important;
   animation: pulse 1.5s infinite;
 }
@@ -550,17 +628,17 @@ p {
     max-width: 320px;
   }
 
-  .galeria img {
-    max-width: 90%;
+  .polaroid-grid {
+    gap: 25px 15px;
   }
 
-  .galeria img:hover {
-    transform: scale(0.95);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+  .foto-polaroid {
+    width: 42%;
+    min-width: 140px;
   }
 
-  #fotoCinco {
-    margin-bottom: 15px;
+  .foto-polaroid img {
+    height: 170px;
   }
 
   .botao-carinhoso {
@@ -644,6 +722,28 @@ p {
 
   .decoracao img {
     height: 220px;
+  }
+
+  .polaroid-grid {
+    gap: 20px 10px;
+  }
+
+  .foto-polaroid {
+    width: 46%;
+    min-width: 130px;
+    padding: 10px 10px 16px 10px;
+  }
+
+  .foto-polaroid img {
+    height: 150px;
+  }
+
+  .legenda-polaroid {
+    font-size: 1.1rem !important;
+  }
+
+  .lightbox-legenda {
+    font-size: 1.3rem !important;
   }
 
   .timer-grid {
