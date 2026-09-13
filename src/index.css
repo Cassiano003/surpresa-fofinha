@@ -143,7 +143,6 @@ p {
   width: 230px;
   cursor: pointer;
 
-  /* estado inicial: escondida, pronta pro efeito de scroll reveal */
   opacity: 0;
   transform: translateY(50px) rotate(var(--rot, 0deg)) scale(0.9);
   transition: opacity 0.7s ease, transform 0.7s ease;
@@ -179,7 +178,10 @@ p {
 
 .lightbox-overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.85);
   z-index: 3000;
   display: flex;
@@ -217,7 +219,7 @@ p {
 .lightbox-fechar {
   position: fixed;
   top: 20px;
-  right: 25px;
+  left: 25px;
   background: rgba(255, 255, 255, 0.15);
   border: 2px solid #fff;
   color: #fff;
@@ -227,6 +229,7 @@ p {
   font-size: 1.3rem;
   cursor: pointer;
   transition: 0.2s;
+  z-index: 3001;
 }
 
 .lightbox-fechar:hover {
@@ -579,6 +582,7 @@ p {
   font-size: 1.3rem;
   color: #d6336c;
   cursor: pointer;
+  z-index: 3001;
 }
 
 .playlist-sidebar ul {

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import LoveTimer from './LoveTimer';
 
@@ -97,7 +98,7 @@ function Surpresa() {
         </div>
       </div>
 
-      {fotoAberta && (
+      {fotoAberta && createPortal(
         <div className="lightbox-overlay" onClick={() => setFotoAberta(null)}>
           <button
             className="lightbox-fechar"
@@ -115,7 +116,8 @@ function Surpresa() {
             onClick={(e) => e.stopPropagation()}
           />
           <p className="lightbox-legenda">{fotoAberta.legenda}</p>
-        </div>
+        </div>,
+        document.body
       )}
 
       <div className='ass'>
