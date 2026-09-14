@@ -1,6 +1,7 @@
 import { HashRouter, Routes, Route, Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import Surpresa from './Surpresa'; 
+import Surpresa from './Surpresa';
+import Recados from './Recados';
 
 const musicas = [
   { titulo: 'Meu Bem Querer - Djavan', arquivo: './musicas/meuBemQuerer.mp3' },
@@ -72,13 +73,19 @@ function App() {
 
       <audio ref={audioRef} src={musicas[currentSong].arquivo} loop />
 
-      <button className="botao-musica" onClick={togglePlay}>
-        {isPlaying ? 'Pausar Música' : 'Tocar Música'}
-      </button>
+      <nav className="nav-topo">
+        <button className="botao-musica" onClick={togglePlay}>
+          {isPlaying ? 'Pausar Música' : 'Tocar Música'}
+        </button>
 
-      <button className="botao-playlist" onClick={() => setIsPlaylistOpen(true)}>
-        Playlist
-      </button>
+        <button className="botao-playlist" onClick={() => setIsPlaylistOpen(true)}>
+          Playlist
+        </button>
+
+        <Link to="/recados">
+          <button className="botao-recados">Recados</button>
+        </Link>
+      </nav>
 
       {isPlaylistOpen && (
         <div className="playlist-overlay" onClick={() => setIsPlaylistOpen(false)} />
@@ -106,6 +113,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/surpresa" element={<Surpresa />} />
+        <Route path="/recados" element={<Recados />} />
       </Routes>
     </HashRouter>
   );
