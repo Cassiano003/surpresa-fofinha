@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const API_URL = 'https://recados-api-dpb4.onrender.com/';
+const API_URL = 'https://recados-api-dpb4.onrender.com/recados';
 
 function Recados() {
   const [recados, setRecados] = useState([]);
