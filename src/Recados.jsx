@@ -14,7 +14,7 @@ function Recados() {
   const buscarRecados = async () => {
     try {
       setCarregando(true);
-      const resposta = await fetch(API_URL);
+      const resposta = await fetch(API_URL, { cache: 'no-store' });
       if (!resposta.ok) throw new Error('Falha ao buscar recados');
       const dados = await resposta.json();
       setRecados(dados);
