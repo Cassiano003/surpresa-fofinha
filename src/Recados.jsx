@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-// Enquanto estiver testando na sua máquina, deixe assim.
-// Quando publicar a API de verdade (Render/Railway), troque essa URL.
-const API_URL = 'http://localhost:3001/recados';
+const API_URL = 'https://recados-api-dpb4.onrender.com/';
 
 function Recados() {
   const [recados, setRecados] = useState([]);
