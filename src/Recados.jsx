@@ -58,8 +58,8 @@ function Recados() {
 
   return (
     <div className="container">
-      <h1 className="surpresaTitulo">Mural de recados 💌</h1>
-      <p>Deixe uma mensagem pra mim aqui embaixo!</p>
+      <h1 className="surpresaTitulo">Mural de cartinhas 💌</h1>
+      <p>Que tal trocarmos algumas cartinhas?</p>
 
       <form className="form-recado" onSubmit={enviarRecado}>
         <input
@@ -70,14 +70,14 @@ function Recados() {
           maxLength={40}
         />
         <textarea
-          placeholder="Escreva seu recado aqui..."
+          placeholder="Escreva sua cartinha aqui..."
           value={mensagem}
           onChange={(e) => setMensagem(e.target.value)}
           maxLength={500}
           required
         />
         <button type="submit" className="botao-carinhoso" disabled={enviando}>
-          {enviando ? 'Enviando...' : 'Enviar recado 💌'}
+          {enviando ? 'Enviando...' : 'Enviar cartinha'}
         </button>
       </form>
 

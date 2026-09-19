@@ -74,17 +74,19 @@ function App() {
       <audio ref={audioRef} src={musicas[currentSong].arquivo} loop />
 
       <nav className="nav-topo">
-        <button className="botao-musica" onClick={togglePlay}>
-          {isPlaying ? 'Pausar Música' : 'Tocar Música'}
-        </button>
-
-        <button className="botao-playlist" onClick={() => setIsPlaylistOpen(true)}>
-          Playlist
-        </button>
-
         <Link to="/recados">
           <button className="botao-recados">Recados</button>
         </Link>
+        <div className='caixa-musica'>
+          <button className="botao-playlist" onClick={() => setIsPlaylistOpen(true)}>
+          Playlist
+        </button>
+
+        <button className="botao-musica" onClick={togglePlay}>
+          {isPlaying ? 'Pausar Música' : 'Tocar Música'}
+        </button>
+        </div>
+        
       </nav>
 
       {isPlaylistOpen && (
