@@ -75,7 +75,7 @@ function App() {
 
       <nav className="nav-topo">
         <Link to="/recados">
-          <button className="botao-recados">Recados</button>
+          <button className="botao-recados">Cartinhas</button>
         </Link>
         <div className='caixa-musica'>
           <button className="botao-playlist" onClick={() => setIsPlaylistOpen(true)}>
